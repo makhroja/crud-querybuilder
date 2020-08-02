@@ -19,3 +19,6 @@ Route::get('/', function () {
 
 
 Route::get('siswa', 'SiswaController@index');
+Route::get('tambah-siswa', 'SiswaController@tambah');
+
+Route::post('create-siswa', 'SiswaController@create');

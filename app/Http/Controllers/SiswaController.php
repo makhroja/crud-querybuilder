@@ -12,4 +12,21 @@ class SiswaController extends Controller
         $siswa = DB::table('siswa')->get();
         return view('siswa', ['siswas' => $siswa]);
     }
+
+    public function tambah()
+    {
+        return view('tambah');
+    }
+
+    public function create(Request $request)
+    {
+        DB::table('siswa')->insert(
+            [
+                'nama'      => $request->nama,
+                'kelas'     => $request->kelas,
+                'jurusan'   => $request->jurusan
+            ]
+        );
+        return redirect('/siswa')->with(['success' => 'Data berhasil di tambah']);
+    }
 }
