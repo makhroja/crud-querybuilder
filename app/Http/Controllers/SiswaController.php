@@ -29,4 +29,22 @@ class SiswaController extends Controller
         );
         return redirect('/siswa')->with(['success' => 'Data berhasil di tambah']);
     }
+
+    public function edit($id)
+    {
+        $siswa = DB::table('siswa')->find($id);
+        return view('ubah', ['siswa' => $siswa]);
+    }
+
+    public function update(Request $request)
+    {
+        DB::table('siswa')->where('id', $request->id)->update(
+            [
+                'nama'      => $request->nama,
+                'kelas'     => $request->kelas,
+                'jurusan'   => $request->jurusan
+            ]
+        );
+        return redirect('/siswa')->with(['success' => 'Data berhasil di ubah']);
+    }
 }
