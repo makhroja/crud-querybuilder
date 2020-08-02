@@ -31,7 +31,7 @@
             <th>{{$siswa->jurusan}}</th>
             <th>
                 <a href="{{ url('/edit')}}/{{$siswa->id}}" class="btn btn-sm btn-primary">Edit</a> ||
-                <a href="{{ url('/hapus')}}/{{$siswa->id}}" class="btn btn-sm btn-danger">Hapus</a>
+                <a onclick="return confirm('Yakin akan dihapus?');" href="{{ url('/hapus')}}/{{$siswa->id}}" class="btn btn-sm btn-danger">Hapus</a>
             </th>
         </tr>
         @endforeach

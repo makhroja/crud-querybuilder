@@ -47,4 +47,10 @@ class SiswaController extends Controller
         );
         return redirect('/siswa')->with(['success' => 'Data berhasil di ubah']);
     }
+
+    public function delete($id)
+    {
+        DB::table('siswa')->where('id', $id)->delete();
+        return redirect('/siswa')->with(['success' => 'Data berhasil di hapus']);
+    }
 }
